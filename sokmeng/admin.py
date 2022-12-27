@@ -9,9 +9,25 @@ while  x!=0:
         print("plz enter your passwork:")
         y=int(input("....."))
         if y==123:
-            print("successed!")
-            break
-        else:
-            print("not correct")
-    else:
-        print("welcom to game")
+            view = [
+
+            ]
+
+
+
+            # score user
+
+            def score():
+                print("++++buttom blue is win")
+                print("++++buttom red is lose")
+
+
+            score()
+            y = str(input("when game finished have blue or red buttom:"))
+            while y == "blue" or y == "red" and x != 2:
+                if y == "blue":
+                    print("contragulation you got 100")
+                    break
+                elif y == "red":
+                    print("lose you got 50")
+                    break
