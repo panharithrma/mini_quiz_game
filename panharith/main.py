@@ -1,13 +1,34 @@
 
+questions = [
+    {
+        'title': 'What is minimum age to vote in Cambodia ?',
+        'answers': ['15', '18', '21', '35'],
+        'correct': '18'
+    },
+    {
+        'title': 'How many provinces and Cities in Cambodia ?',
+        'answers': ['15', '24', '25', '35'],
+        'correct': '25'
+    }
+]
+
+def read_all_question():
+    print("All Questions are .... ")
+    for question in questions:
+        print(question)
 
 def add_new_question():
-    print("Processing Add New Question!")
-
-def view_all_questions():
-    print("Processing View All Questions!")
+    print("Add New Question")
 
 def access_admin_features():
-    print("Press 1 for .... 2 for...")
+    print("Press 1 for Read All Questions 2 for Add a New Question.")
+    admin_option = input('Option: ')
+    if admin_option == '1':
+        read_all_question()
+    elif admin_option == '2':
+        add_new_question()
+    else:
+        print("Invalid Option")
 
 def access_player_features():
     print("Press A for .... B for...")
