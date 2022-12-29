@@ -1,19 +1,23 @@
 print('Welcome to Mini Game')
 a = input('Enter Username= ')
-if a == "admin":
-    ls = [
-        'Question1: ',
-        'Question2: ',
-        'Question3: ',
+ls = [
+        {'question1': 'Where is the capital of Cambodia?'},
+        {'answers': ('Battambang', 'Poipet', 'Siem Reap', 'Phnom Penh')},
+        {'correct': 'Phnom Penh'}
     ]
-    for question in ls:
-        print(question)
+if a == "admin":
+    y = input("Do you want to view or add question = ")
+    if y == "view":
+        for question in ls:
+            print(question)
+    else:
+        ls.append(ls)
+
 else:
-    p = input('Enter Password= ')
-    if p == "123":
-        print('Question1: 1+1 = (2 or 1) ')
-        x = input('Your choice is : ')
-        if x == "2":
-            print("Your answer is True")
-        else:
-            print("Your answer is False")
+    print('1, Where is the capital of Cambodia?')
+    print('Answers : Battambang, Poipet, Siem Reap or Phnom Penh')
+    x = input('Your choice is : ')
+    if x == "Phnom Penh":
+        print("Your answer is True")
+    else:
+        print("Your answer is False")
