@@ -41,14 +41,23 @@ def add_new_question():
     for i in range (n):
         element = input("Enter answer to choose= ")
         list.append(element)
-    print("answer: ", list)
+    print("answer: ",  list)
     b = input("correct: ")
 
-    add_new = { 'title' : a,
-                'answer' : list,
+    add_new = {'title' : a,
+               'answer' : list,
                 'correct' : b
     }
-    print(add_new)
+    questions.append(add_new)
+    print("New question has been added")
+    print("Press 1 for Continue to Add , 2 for Exit ")
+    y = input("Option: ")
+    if y == "1":
+        add_new_question()
+    elif y == "2":
+        pass
+    else:
+        print("Invalided Input!")
 
 def access_admin_features():
     print("Press 1 for Read All Questions 2 for Add a New Question.")
@@ -57,7 +66,6 @@ def access_admin_features():
         read_all_question()
     elif admin_option == '2':
         add_new_question()
-
     else:
         print("Invalid Option")
 
@@ -131,19 +139,20 @@ def display_access_denied():
     print("Access Denied!")
 
 if __name__ == "__main__":
-    displaying_welcome_to_users()
-    username = input('Enter Username= ')
-    if username == 'admin':
-        admin_password = input('Admin Password= ')
-        if admin_password == '123':
-            access_admin_features()
+    while 1:
+        displaying_welcome_to_users()
+        username = input('Enter Username= ')
+        if username == 'admin':
+            admin_password = input('Admin Password= ')
+            if admin_password == '123':
+                access_admin_features()
+            else:
+                display_access_denied()
+        elif username == 'player':
+            player_password = input('Player Password: ')
+            if player_password == 'abc':
+                access1_player_features()
+            else:
+                display_access_denied()
         else:
             display_access_denied()
-    elif username == 'player':
-        player_password = input('Player Password: ')
-        if player_password == 'abc':
-            access1_player_features()
-        else:
-            display_access_denied()
-    else:
-        display_access_denied()
