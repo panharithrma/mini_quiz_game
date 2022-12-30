@@ -37,6 +37,8 @@ def user():
             print("choose hero u wanna buys.")
         elif user_option == 3:
             print("added.")
+        elif user_option ==4:
+                user_ask()
         else:
             dont_have_option()
     else:
@@ -45,6 +47,7 @@ def plz_check_password():
     print("plz check your password!!!")
 def dont_have_option():
     print("dont have option!!")
+
 def read_all_question():
     print("All Questions are .... ")
     question = len(questions)
@@ -82,6 +85,7 @@ def read_all_question():
             else:
                 pass
         i+=1
+
 questions = [
     {
         'title': 'What is minimum age to vote in Cambodia ?',
@@ -91,6 +95,32 @@ questions = [
 questions.append("Question: how many people in  cambodia?\n"
                  "10million\n"
                  "16million")
+ask_from_use =[""]
+def user_ask():
+
+    n= 1
+    while n<n+1:
+        user_questions=input("enter your question++++>>>>>>")
+        ask_from_use.append(user_questions)
+        user_answer = input("input your answer 4 answer:...")
+        user_choise = input("choose one correct answer:....")
+        if user_choise == user_answer:
+            got_score()
+            sum = n*20
+            print(sum)
+        else:
+            lose_game()
+        ask_from_use.append(user_answer)
+        print(ask_from_use)
+        n+=1
+    user_answer = input("you want add more question (y/n----->")
+    if user_answer.lower() == "y":
+        user_ask()
+    elif user_answer.lower()=="n":
+        choose_option_user()
+    else:
+        pass
+
 def got_score():
     score = 20
     print("you got score :" + str(score))
@@ -105,8 +135,10 @@ def choose_option_user():
     print("choose options:\n"
           "1-->start game now\n"
           "2-->buy hero\n"
-          "3-->invite friends")
-                                        #main
+          "3-->invite friends\n"
+          "4--> ask your question by your self")
+
+#main
 if __name__ == "__main__":
     loing()
     first_any_question()
