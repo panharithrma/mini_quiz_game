@@ -1,4 +1,3 @@
-
 questions = [
     {
         'title': 'What is minimum age to vote in Cambodia ?',
@@ -9,26 +8,14 @@ questions = [
         'title': 'How many provinces and Cities in Cambodia ?',
         'answers': ['15', '24', '25', '35'],
         'correct': '25'
-    }
-]
-question1_player = [
+    },
     {
-        'title': 'What is minimum age to vote in Cambodia ?',
-        'answers': ['15', '18', '21', '35'],
+          'title': 'Where is Angkor Wat ?',
+          'answers': ['BTB', 'SR', 'TK', 'PP'],
+          'correct': 'SR'
     }
 ]
-question2_player = [
-    {
-        'title': 'How many provinces and Cities in Cambodia ?',
-        'answers': ['15', '24', '25', '35'],
-    }
-]
-question3_player= [
-        {
-            'title': 'Where is Angkor Wat ?',
-            'answers': ['BTB', 'SR', 'TK', 'PP'],
-        }
-    ]
+
 def read_all_question():
     print("All Questions are .... ")
     for question in questions:
@@ -71,35 +58,19 @@ def access_admin_features():
 
 def play_game1():
     print("Question is:  ")
-    for question in question1_player:
-        print(question)
-    answer = input("Your Answer is: ")
-    if answer == "18":
-        print("Your Answer is correct.")
-    else:
-        print("Your Answer is False")
-    access2_player_features()
-
-def play_game2():
-    print("Question is:  ")
-    for question in question2_player:
-        print(question)
-    answer = input("Your Answer is: ")
-    if answer == "25":
-        print("Your Answer is correct.")
-    else:
-        print("Your Answer is False")
-    access3_player_features()
-
-def play_game3():
-    print("Question is:  ")
-    for question in question3_player:
-        print(question)
-    answer = input("Your Answer is: ")
-    if answer == "SR":
-        print("Your Answer is correct.")
-    else:
-        print("Your Answer is False")
+    correct_answer = 0
+    for q in questions:
+        print(q['title'])
+        print(q["answers"])
+        answer = input("Your Answer is: ")
+        if q["correct"] == answer:
+            print("Your Answer is correct.")
+            correct_answer += 1
+        else:
+            print("Your Answer is False")
+        if q['correct'] == 'answer':
+            correct_answer += 1
+    print("Your total scores is:", correct_answer)
 
 def access1_player_features():
     print("Press A for play B for Exit Game!")
@@ -110,31 +81,9 @@ def access1_player_features():
         pass
     else:
         print("Invalid Option")
-
-def access2_player_features():
-    print("Press C for continue B for Exit Game!")
-    player_option = input('Option: ')
-    if player_option  == 'C':
-        play_game2()
-    elif player_option  == 'B':
-        pass
-    else:
-        print("Invalid Option")
-
-def access3_player_features():
-    print("Press C for continue B for Exit Game!")
-    player_option = input('Option: ')
-    if player_option == 'C':
-        play_game3()
-    elif player_option == 'B':
-        pass
-    else:
-        print("Invalid Option")
-
 def displaying_welcome_to_users():
     print("Welcome to Mini Quiz Game")
     print("Are you admin or player?")
-
 def display_access_denied():
     print("Access Denied!")
 
